@@ -2,14 +2,14 @@
 
 echo "Installing the vncserver ... "
 
-sudo apt update
-sudo apt install ubuntu-desktop
-sudo apt install tightvncserver
-sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+sudo apt update &> /dev/null
+sudo apt install ubuntu-desktop &> /dev/null
+sudo apt install tightvncserver &> /dev/null
+sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal &> /dev/null
 
 sleep 1
 
-vncserver :1
+vncserver :1 &> /dev/null
 
 #nano ~/.vnc/xstartup
 
@@ -26,9 +26,8 @@ metacity & \n
 nautilus & \n
 gnome-terminal &' > ~/.vnc/xstartup
 
-vncserver -kill :1
-
-vncserver :1
+vncserver -kill :1 &> /dev/null
+vncserver :1 &> /dev/null
 
 echo
 echo "[+] setup is ready ! you can connect with public_ip:1 in VNC application"
